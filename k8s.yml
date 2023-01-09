@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: futu-opend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: futu-opend
+  template:
+    metadata:
+      labels:
+        name: futu-opend
+    spec:
+      containers:
+      - name: container
+        image: pangliang/futu-opend-docker:6.6.3108
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 11111
+        volumeMounts:
+        - mountPath: /root/.com.futunn.FutuOpenD
+          name: futu-opend-data
+          subPath: data
+        env:
+        - name: log_level
+          value: info
+        - name: telnet_ip
+          value: '127.0.0.1'
+        - name: telnet_port
+          value: '2222'
+        - name: console
+          value: '1'
+        - name: login_account
+          valueFrom:
+            secretKeyRef:
+              name: futu-opend
+              key: login_account
+        - name: login_pwd_md5
+          valueFrom:
+            secretKeyRef:
+              name: futu-opend
+              key: login_pwd_md5
+      volumes:
+      - name: futu-opend-data
+        persistentVolumeClaim:
+          claimName: futu-opend-data
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: futu-opend-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: futu-opend
+spec:
+  selector:
+    name: futu-opend
+  ports:
+    - protocol: TCP
+      port: 11111
+      targetPort: 11111
+
+
+
+
