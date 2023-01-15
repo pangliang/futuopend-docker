@@ -5,7 +5,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  VERSION: 6.6.3108
+  VERSION: 7.0.3208
 
 jobs:
   build-push:
