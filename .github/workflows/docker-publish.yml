@@ -40,5 +40,5 @@ jobs:
           build-args: |
             VERSION=${{ inputs.VERSION }}
           tags: |
-            pangliang/futu-opend-docker:${{ inputs.VERSION }}
-            pangliang/futu-opend-docker:latest
+            pangliang/futuopend-docker:${{ inputs.VERSION }}
+            pangliang/futuopend-docker:latest

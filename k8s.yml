@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: futu-opend
+  name: futuopend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: futu-opend
+      name: futuopend
   template:
     metadata:
       labels:
-        name: futu-opend
+        name: futuopend
     spec:
       containers:
       - name: container
-        image: pangliang/futu-opend-docker:7.0.3208
+        image: pangliang/futuopend-docker:7.0.3208
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11111
         volumeMounts:
         - mountPath: /root/.com.futunn.FutuOpenD
-          name: futu-opend-data
+          name: futuopend-data
           subPath: data
         env:
         - name: log_level
@@ -34,23 +34,23 @@ spec:
         - name: login_account
           valueFrom:
             secretKeyRef:
-              name: futu-opend
+              name: futuopend
               key: login_account
         - name: login_pwd_md5
           valueFrom:
             secretKeyRef:
-              name: futu-opend
+              name: futuopend
               key: login_pwd_md5
       volumes:
-      - name: futu-opend-data
+      - name: futuopend-data
         persistentVolumeClaim:
-          claimName: futu-opend-data
+          claimName: futuopend-data
 
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: futu-opend-data
+  name: futuopend-data
 spec:
   accessModes:
     - ReadWriteOnce
@@ -63,10 +63,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: futu-opend
+  name: futuopend
 spec:
   selector:
-    name: futu-opend
+    name: futuopend
   ports:
     - protocol: TCP
       port: 11111

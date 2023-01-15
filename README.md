@@ -1,5 +1,5 @@
 # dockerfile
-https://github.com/pangliang/futu-opend-docker
+https://github.com/pangliang/futuopend-docker
 
 # how to run
 
@@ -11,7 +11,7 @@ docker run -i -t \
    -e login_account=10000 \
    -e login_pwd=xxxxx \
    -p 11111:11111 \
-   pangliang/futu-opend-docker:latest
+   pangliang/futuopend-docker:latest
 ```
 
 more env : https://openapi.futunn.com/futu-api-doc/opend/opend-cmd.html#465
@@ -19,5 +19,5 @@ more env : https://openapi.futunn.com/futu-api-doc/opend/opend-cmd.html#465
 ## k8s
 
 ```bash
-kubectl --namespace default apply -f https://raw.githubusercontent.com/pangliang/futu-opend-docker/master/k8s.yml
+kubectl --namespace default apply -f https://raw.githubusercontent.com/pangliang/futuopend-docker/master/k8s.yml
 ```
