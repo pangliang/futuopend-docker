@@ -12,6 +12,7 @@ RUN wget -O - https://softwarefile.futunn.com/${SDK_NAME}.tar.gz | tar -xzf - -C
 RUN rm -rf /${SDK_NAME}/FutuOpenD-GUI_${VERSION}_NN_Ubuntu16.04 \
     && ln -s /${SDK_NAME}/${SDK_NAME} /FutuOpenD
 
+VOLUME /root/.com.futunn.FutuOpenD
 WORKDIR /FutuOpenD
 COPY docker-entrypoint.sh /
 CMD ["/docker-entrypoint.sh"]
