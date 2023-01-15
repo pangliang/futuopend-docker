@@ -1,11 +1,16 @@
-name: docker-publish
+name: Docker Publish
+run-name: ${{ inputs.VERSION }}
 
 on:
   workflow_dispatch:
+    inputs:
+      VERSION:
+        description: 'FutuOpenD Version'
+        required: true
+        default: '7.0.3208'
 
 env:
   REGISTRY: docker.io
-  VERSION: 7.0.3208
 
 jobs:
   build-push:
@@ -33,7 +38,7 @@ jobs:
           push: true
           platforms: linux/amd64
           build-args: |
-            VERSION=${{ env.VERSION }}
+            VERSION=${{ inputs.VERSION }}
           tags: |
-            pangliang/futu-opend-docker:${{ env.VERSION }}
+            pangliang/futu-opend-docker:${{ inputs.VERSION }}
             pangliang/futu-opend-docker:latest
