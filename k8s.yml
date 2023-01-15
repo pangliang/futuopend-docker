@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: container
-        image: pangliang/futu-opend-docker:6.6.3108
+        image: pangliang/futu-opend-docker:7.0.3208
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 11111
