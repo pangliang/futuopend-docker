@@ -1,9 +1,10 @@
-# dockerfile
-https://github.com/pangliang/futuopend-docker
+# Docker image
+https://hub.docker.com/r/pangliang/futuopend-docker
 
-# how to run
 
-## docker
+# How to run
+
+## Docker
 
 ```bash
 docker run -i -t \
@@ -16,7 +17,7 @@ docker run -i -t \
 
 more env : https://openapi.futunn.com/futu-api-doc/opend/opend-cmd.html#465
 
-## k8s
+## K8s
 
 ```bash
 kubectl --namespace default apply -f https://raw.githubusercontent.com/pangliang/futuopend-docker/master/k8s.yml
