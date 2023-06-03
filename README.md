@@ -15,7 +15,7 @@ docker run -i -t \
    pangliang/futuopend-docker:latest
 ```
 
-more env : https://openapi.futunn.com/futu-api-doc/opend/opend-cmd.html#465
+more env : [https://www.moomoo.com/download/OpenAPI](https://www.moomoo.com/download/OpenAPI)
 
 ## K8s
 
