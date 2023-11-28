@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-FUTU_HOME=${FUTU_HOME:-"/FutuOpenD"}
+FUTU_HOME=${FUTU_HOME:-"/OpenD"}
 
 console=${console:-0}
 no_monitor=${no_monitor:-1}
-cfg_file=${cfg_file:-"$FUTU_HOME/FutuOpenD.xml"}
+cfg_file=${cfg_file:-"$FUTU_HOME/OpenD.xml"}
 lang=${lang:-chs}
 api_ip=${api_ip:-0.0.0.0}
 api_port=${api_port:-11111}
@@ -43,5 +43,5 @@ if [ $login_pwd_md5 -a $login_pwd ];then
     exit 100
 fi
 
-$FUTU_HOME/FutuOpenD $OPTS
+$FUTU_HOME/OpenD $OPTS
 
